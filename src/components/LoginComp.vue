@@ -4,6 +4,19 @@
             <div class="avatar_box">
                 <img src="@/assets/logo.png" alt="loginLogo">
             </div>
+
+            <el-form class="login_form" label-width="0">
+                <el-form-item>
+                    <el-input></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-input type="password"></el-input>
+                </el-form-item>
+                <el-form-item class="btns">
+                    <el-button type="primary">登录</el-button>
+                    <el-button type="info">重置</el-button>
+                </el-form-item>
+            </el-form>
         </div>
     </div>
 </template>
@@ -49,5 +62,17 @@ export default {
             background-color: #eee;
         }
     }
+}
+
+.login_form{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.btns{
+    display: flex;
 }
 </style>
