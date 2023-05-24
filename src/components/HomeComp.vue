@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-button type="info" @click="ligout">退出</el-button>
+        <el-button type="info" @click=" ligout ">退出</el-button>
     </div>
 </template>
 
@@ -8,8 +8,8 @@
 export default {
     methods: {
         ligout() {
-            window.sessionStorage.clear();
-            this.$router.push('/login');
+            window.sessionStorage.clear()
+            this.$router.push('/login')
         }
     }
 }

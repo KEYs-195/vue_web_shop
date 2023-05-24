@@ -46,20 +46,20 @@ export default {
 
     methods: {
         resetLoginForm() {
-            // console.log(this);
-            this.$refs.loginFormRef.resetFields();
+            // console.log(this)
+            this.$refs.loginFormRef.resetFields()
         },
 
         login() {
             this.$refs.loginFormRef.validate(async valid => {
-                if (!valid) return;
-                const { data: res } = await this.$http.post('login', this.loginForm);
-                if (res.meta.status !== 200) return this.$message.error('登陆失败！');
-                this.$message.success('登陆成功！');
+                if (!valid) return
+                const { data: res } = await this.$http.post('login', this.loginForm)
+                if (res.meta.status !== 200) return this.$message.error('登陆失败！')
+                this.$message.success('登陆成功！')
 
-                window.sessionStorage.setItem('token', res.data.token);
-                this.$router.push('/home');
-            });
+                window.sessionStorage.setItem('token', res.data.token)
+                this.$router.push('/home')
+            })
         }
     }
 }
