@@ -1,6 +1,11 @@
 <template>
     <el-container class="home-container">
         <el-header>
+            <div>
+                <img src="@/assets/homemain.webp" alt="logo">
+                <span>电商后台管理系统</span>
+            </div>
+
             <el-button type="info" @click=" ligout ">退出</el-button>
         </el-header>
 
@@ -35,6 +40,20 @@ export default {
     align-items: center;
     color: #fff;
     font-size: 20px;
+
+    >div {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 20%;
+            height: 20%;
+        }
+
+        span {
+            margin-left: 15px;
+        }
+    }
 }
 
 .el-aside {
