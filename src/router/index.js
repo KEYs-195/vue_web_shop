@@ -13,6 +13,10 @@ const routes = [
   {
     path: '/login',
     component: LoginComp
+  },
+  {
+    path: '/home',
+    component: () => import('@/components/HomeComp')
   }
 ]
 
