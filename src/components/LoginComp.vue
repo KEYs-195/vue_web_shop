@@ -5,12 +5,13 @@
                 <img src="@/assets/logo.png" alt="loginLogo">
             </div>
 
-            <el-form :model=" loginForm " class="login_form" label-width="0">
-                <el-form-item>
+            <el-form rules="loginFormRules" :model=" loginForm " class="login_form" label-width="0">
+                <el-form-item prop="username">
                     <el-input v-model=" loginForm.username " prefix-icon="iconfont icon-user"></el-input>
                 </el-form-item>
-                <el-form-item>
-                    <el-input v-model=" loginForm.password " prefix-icon="iconfont icon-3702mima" type="password"></el-input>
+                <el-form-item prop="password">
+                    <el-input v-model=" loginForm.password " prefix-icon="iconfont icon-3702mima"
+                        type="password"></el-input>
                 </el-form-item>
                 <el-form-item class="btns">
                     <el-button type="primary">登录</el-button>
@@ -28,6 +29,17 @@ export default {
             loginForm: {
                 username: 'admin',
                 password: '123456'
+            },
+
+            loginFormRules: {
+                username: [
+                    { required: true, message: '请输入用户名称', trigger: 'blur' },
+                    { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+                ],
+                password: [
+                    { required: true, message: '请输入用户密码', trigger: 'blur' },
+                    { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
+                ]
             }
         }
     },
