@@ -22,6 +22,10 @@ const routes = [
       {
         path: '/welcome',
         component: () => import('@/components/WelcomeComp')
+      },
+      {
+        path: '/users',
+        component: () => import('@/components/User/UserComp')
       }
     ]
   }
