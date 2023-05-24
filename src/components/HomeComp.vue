@@ -14,12 +14,12 @@
                 <el-menu background-color="#333744" text-color="#fff" active-text-color="#ffd04b">
                     <el-submenu :index=" item.id + '' " v-for=" item in menulist " :key=" item.id ">
                         <template slot="title">
-                            <i class="el-icon-location"></i>
+                            <i :class=" iconObj[ item.id ] "></i>
                             <span>{{ item.authName }}</span>
                         </template>
                         <el-menu-item :index=" subItem.id + '' " v-for=" subItem in item.children " :key=" subItem.id ">
                             <template slot="title">
-                                <i class="el-icon-location"></i>
+                                <i class="el-icon-menu"></i>
                                 <span>{{ subItem.authName }}</span>
                             </template></el-menu-item>
                     </el-submenu>
@@ -36,7 +36,14 @@
 export default {
     data() {
         return {
-            menulist: []
+            menulist: [],
+            iconObj: {
+                '125': 'iconfont icon-user',
+                '103': 'iconfont icon-tijikongjian',
+                '101': 'iconfont icon-shangpin',
+                '102': 'iconfont icon-danju',
+                '145': 'iconfont icon-baobiao'
+            },
         }
     },
     created() {
@@ -87,6 +94,14 @@ export default {
 
 .el-aside {
     background-color: #333744;
+
+    .iconfont {
+        margin-right: 15px;
+    }
+
+    .el-menu {
+        border: none;
+    }
 }
 
 .el-main {
