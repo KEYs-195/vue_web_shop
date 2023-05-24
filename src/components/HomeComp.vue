@@ -15,13 +15,14 @@
                 <div class="toggle-button" @click=" toggleCollapse ">|||</div>
 
                 <el-menu background-color="#333744" text-color="#fff" active-text-color="#409EFF" unique-opened
-                    :collapse=" isCollapse " :collapse-transition=" false ">
+                    :collapse=" isCollapse " :collapse-transition=" false " router>
                     <el-submenu :index=" item.id + '' " v-for=" item in menulist " :key=" item.id ">
                         <template slot="title">
                             <i :class=" iconObj[ item.id ] "></i>
                             <span>{{ item.authName }}</span>
                         </template>
-                        <el-menu-item :index=" subItem.id + '' " v-for=" subItem in item.children " :key=" subItem.id ">
+
+                        <el-menu-item :index=" '/' + subItem.path " v-for=" subItem in item.children " :key=" subItem.id ">
                             <template slot="title">
                                 <i class="el-icon-menu"></i>
                                 <span>{{ subItem.authName }}</span>
