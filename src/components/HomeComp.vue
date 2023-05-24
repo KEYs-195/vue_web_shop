@@ -10,8 +10,12 @@
         </el-header>
 
         <el-container>
-            <el-aside width="200px">
-                <el-menu background-color="#333744" text-color="#fff" active-text-color="#ffd04b">
+            <el-aside :width=" isCollapse ? 'auto' : '200px' ">
+
+                <div class="toggle-button" @click=" toggleCollapse ">|||</div>
+
+                <el-menu background-color="#333744" text-color="#fff" active-text-color="#409EFF" unique-opened
+                    :collapse=" isCollapse " :collapse-transition=" false ">
                     <el-submenu :index=" item.id + '' " v-for=" item in menulist " :key=" item.id ">
                         <template slot="title">
                             <i :class=" iconObj[ item.id ] "></i>
@@ -44,6 +48,7 @@ export default {
                 '102': 'iconfont icon-danju',
                 '145': 'iconfont icon-baobiao'
             },
+            isCollapse: false,
         }
     },
     created() {
@@ -59,6 +64,9 @@ export default {
             if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
             this.menulist = res.data
             // console.log(res);
+        },
+        toggleCollapse() {
+            this.isCollapse = !this.isCollapse
         },
     }
 }
@@ -106,5 +114,15 @@ export default {
 
 .el-main {
     background-color: #eaedf1;
+}
+
+.toggle-button {
+    background-color: #4A5064;
+    color: #fff;
+    line-height: 24px;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    cursor: pointer;
 }
 </style>
